@@ -1,7 +1,8 @@
-#class_demo
-> Demo project in class.
+#Famo.us Scroll
+> Demo project for the Famo.us Hackathon
 
-[![Build Status](https://travis-ci.org/smhigley/class-demo.svg?branch=master)](https://travis-ci.org/smhigley/class-demo) [![Dependency Status](https://david-dm.org/smhigley/class-demo.svg)](https://david-dm.org/smhigley/class-demo) [![devDependency Status](https://david-dm.org/smhigley/class-demo/dev-status.svg)](https://david-dm.org/smhigley/class-demo#info=devDependencies)
+##Description
+Scrolling through large sites can be a strain on the thumb muscles, so this project attempts to save your hand muscles by zooming out on a grid of images and content during scroll and zooming back in on scroll end. Still a work in progress, built during the Famo.us hackathon in San Francisco, May 21st 2014.
 
 ##Dependencies
 It is actually quite simple really
