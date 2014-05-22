@@ -1,0 +1,32 @@
+{
+  "name": "class-demo",
+  "description": "Demo project in class.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/smhigley/class-demo",
+  "authors": [{
+    "name": "smhigley",
+    "url": "http://github.com/smhigley/"
+  }],
+  "main": "app/index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "famo.us"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "src/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.11",
+    "almond": "~0.2.9",
+    "famous-polyfills": "git+https://github.com/Famous/polyfills.git#0.1.1",
+    "famous": "git+https://github.com/Famous/famous.git#0.2.0"
+  }
+}

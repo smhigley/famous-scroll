@@ -1,0 +1,25 @@
+html, body {
+  background: #ccc;
+  font-family: 'Helvetica', 'Arial', 'sans-serif';
+}
+
+.backfaceVisibility {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+.screen {
+  background-color: #000;
+  border-radius: 20px;
+  border: 10px solid #000;
+}
+
+.cell-content {
+  padding: 10px 14px;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+}
