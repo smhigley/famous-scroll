@@ -14,7 +14,7 @@ define(function(require, exports, module) {
 
       this.screenMod = new StateModifier({
         origin: [0.5, 0],
-        align: [0.5, 0.1],
+        align: [0.5, 0.09],
         size: this.options.size
       });
 
@@ -26,19 +26,13 @@ define(function(require, exports, module) {
       _createScrollSurface.call(this);
 
       // scroll bindings
+      this.scrollTimeout; // very simple debouncing
 
       this.scrollSync.on('start', function() {
-        var scaleAmount = this.options.zoomRatio;
+        console.log('scrolling started');
+        clearTimeout(this.scrollTimeout);
 
-        // resize scrollview
-        this.scrollSizeMod.setTransform(Transform.scale(scaleAmount, scaleAmount, 1), {
-          duration: 500
-        });
-
-        // zoom grid cell backgrounds
-        for (var i = 0, temp; i < this.options.numGrids; i++) {
-          this.grids[i].zoomCells(scaleAmount, 500);
-        }
+        _startScrolling.call(this);
       }.bind(this));
 
       /*this.scrollSync.on('update', function(data) {
@@ -52,13 +46,10 @@ define(function(require, exports, module) {
       }.bind(this));*/
 
       this.scrollSync.on('end', function() {
-        var scaleAmount = 1;
-        this.scrollSizeMod.setTransform(Transform.scale(scaleAmount, scaleAmount, 1), {
-          duration: 500
-        });
-        for (var i = 0, temp; i < this.options.numGrids; i++) {
-          this.grids[i].zoomCells(scaleAmount, 500);
-        }
+        var self = this;
+        console.log('scrolling ended');
+        this.scrollTimeout = setTimeout(function(){ _endScrolling.call(self); }, 100);
+        
       }.bind(this));
 
     }
@@ -99,24 +90,46 @@ define(function(require, exports, module) {
         temp.pipe(this.scrollInstance);
         this.scrollSync.subscribe(temp);
 
-        this.scrollInstance.sync.on('update', function(data) {
+        /*this.scrollInstance.sync.on('update', function(data) {
           console.log(data)
-        });
+        });*/
 
         this.grids.push(temp);
-        console.log(i);
       }
 
-      console.log(this.grids);
-
       this.screen.add(this.scrollSizeMod).add(this.scrollInstance);
+    }
+
+    function _startScrolling() {
+      var scaleAmount = this.options.zoomRatio;
+
+      // resize scrollview
+      this.scrollSizeMod.setTransform(Transform.scale(scaleAmount, scaleAmount, 1), {
+        duration: 500
+      });
+
+      // zoom grid cell backgrounds
+      for (var i = 0, temp; i < this.options.numGrids; i++) {
+        this.grids[i].zoomCells(scaleAmount, 500);
+      }
+    }
+
+    function _endScrolling() {
+      console.log('animate scroll end');
+      var scaleAmount = 1;
+      this.scrollSizeMod.setTransform(Transform.scale(scaleAmount, scaleAmount, 1), {
+        duration: 500
+      });
+      for (var i = 0, temp; i < this.options.numGrids; i++) {
+        this.grids[i].zoomCells(scaleAmount, 500);
+      }
     }
 
     AppView.prototype = Object.create(View.prototype);
     AppView.prototype.constructor = AppView;
 
     AppView.DEFAULT_OPTIONS = {
-      size: [400, 600],
+      size: [380, 680],
       data: undefined,
       gridSize: 300,
       zoomRatio: 0.5,

@@ -10,8 +10,6 @@ html, body {
 
 .screen {
   background-color: #000;
-  border-radius: 20px;
-  border: 10px solid #000;
 }
 
 .cell-content {
