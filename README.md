@@ -2,7 +2,7 @@
 > Demo project for the Famo.us Hackathon
 
 ##Description
-Scrolling through large sites can be a strain on the thumb muscles, so this project attempts to save your hand muscles by zooming out on a grid of images and content during scroll and zooming back in on scroll end. Still a work in progress, built during the Famo.us hackathon in San Francisco, May 21st 2014.
+Scrolling through large sites can be a strain on the thumb, so this project attempts to save your hand muscles by zooming out on a grid of images/content while scrolling and zooming back in on scroll end. Still a work in progress, built during the Famo.us hackathon in San Francisco, May 21st 2014.
 
 Demo: [http://smhigley.github.io/famous-scroll](http://smhigley.github.io/famous-scroll/)
 
