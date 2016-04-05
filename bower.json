@@ -1,8 +1,8 @@
 {
-  "name": "class-demo",
-  "description": "Demo project in class.",
+  "name": "famous-scroll",
+  "description": "Hackathon project for famo.us",
   "version": "0.1.0",
-  "homepage": "https://github.com/smhigley/class-demo",
+  "homepage": "https://github.com/smhigley/famous-scroll",
   "authors": [{
     "name": "smhigley",
     "url": "http://github.com/smhigley/"

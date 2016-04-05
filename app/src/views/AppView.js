@@ -5,7 +5,7 @@ define(function(require, exports, module) {
     var ScrollView = require('famous/views/Scrollview');
     var Transform = require('famous/core/Transform');
     var StateModifier = require('famous/modifiers/StateModifier');
-    var ScrollSync = require("famous/inputs/ScrollSync");
+    var ScrollSync = require('famous/inputs/ScrollSync');
 
     var GridListView = require('views/GridListView');
 
@@ -29,7 +29,6 @@ define(function(require, exports, module) {
       this.scrollTimeout; // very simple debouncing
 
       this.scrollSync.on('start', function() {
-        console.log('scrolling started');
         clearTimeout(this.scrollTimeout);
 
         _startScrolling.call(this);
@@ -47,9 +46,9 @@ define(function(require, exports, module) {
 
       this.scrollSync.on('end', function() {
         var self = this;
-        console.log('scrolling ended');
-        this.scrollTimeout = setTimeout(function(){ _endScrolling.call(self); }, 100);
-        
+        this.scrollTimeout = setTimeout(function() {
+          _endScrolling.call(self);
+        }, 100);
       }.bind(this));
 
     }
@@ -90,10 +89,6 @@ define(function(require, exports, module) {
         temp.pipe(this.scrollInstance);
         this.scrollSync.subscribe(temp);
 
-        /*this.scrollInstance.sync.on('update', function(data) {
-          console.log(data)
-        });*/
-
         this.grids.push(temp);
       }
 
@@ -115,7 +110,6 @@ define(function(require, exports, module) {
     }
 
     function _endScrolling() {
-      console.log('animate scroll end');
       var scaleAmount = 1;
       this.scrollSizeMod.setTransform(Transform.scale(scaleAmount, scaleAmount, 1), {
         duration: 500

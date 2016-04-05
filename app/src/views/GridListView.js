@@ -3,9 +3,8 @@ define(function(require, exports, module) {
     var Surface = require('famous/core/Surface');
     var Transform = require('famous/core/Transform');
     var StateModifier = require('famous/modifiers/StateModifier');
-    var Transitionable = require("famous/transitions/Transitionable");
+    var Transitionable = require('famous/transitions/Transitionable');
     var GridLayout = require('famous/views/GridLayout');
-
     var GridCellView = require('views/GridCellView');
 
     function GridListView() {
@@ -42,7 +41,7 @@ define(function(require, exports, module) {
       this.cells = [];
       this.grid.sequenceFrom(this.cells);
 
-      for(var i = 0; i < this.options.cells; i++) {
+      for (var i = 0; i < this.options.cells; i++) {
 
         this.cells.push(new GridCellView({
           bgURL: this.options.data[i],
@@ -57,16 +56,16 @@ define(function(require, exports, module) {
 
     GridListView.prototype.zoomCells = function(amount, duration) {
       //animate cell backgrounds
-      for(var i = 0; i < this.options.cells; i++) {
+      for (var i = 0; i < this.options.cells; i++) {
         this.cells[i].animateZoom(1/amount, duration);
       }
-    }
+    };
 
     GridListView.prototype.scrollCells = function(amount) {
-      for(var i = 0; i < this.options.cells; i++) {
+      for (var i = 0; i < this.options.cells; i++) {
         this.cells[i].parallaxScroll(amount);
       }
-    }
+    };
 
     module.exports = GridListView;
 });

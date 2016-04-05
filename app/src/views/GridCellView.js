@@ -6,7 +6,7 @@ define(function(require, exports, module) {
   var Transform = require('famous/core/Transform');
   var StateModifier = require('famous/modifiers/StateModifier');
   var ContainerSurface = require('famous/surfaces/ContainerSurface');
-  var Transitionable = require("famous/transitions/Transitionable");
+  var Transitionable = require('famous/transitions/Transitionable');
 
   function GridCellView() {
     View.apply(this, arguments);
@@ -86,18 +86,18 @@ define(function(require, exports, module) {
       duration: duration
     });
 
-    if(amount <= 1) {
+    if (amount <= 1) {
       this.textMod.setOpacity(1, {duration: duration});
     } else {
       this.textMod.setOpacity(0, {duration: duration});
     }
-    this.bgScroll.set( 0, {duration: duration} );
+    this.bgScroll.set(0, {duration: duration});
   };
 
   GridCellView.prototype.parallaxScroll = function(amount) {
     //var currentScroll = this.bgScroll.get();
     //var delta = data.delta[1]*0.5;
-    this.bgScroll.set( amount );
+    this.bgScroll.set(amount);
   };
 
   module.exports = GridCellView;

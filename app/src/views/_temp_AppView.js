@@ -5,8 +5,7 @@ define(function(require, exports, module) {
     var ScrollView = require('famous/views/Scrollview');
     var Transform = require('famous/core/Transform');
     var StateModifier = require('famous/modifiers/StateModifier');
-    var ScrollSync = require("famous/inputs/ScrollSync");
-
+    var ScrollSync = require('famous/inputs/ScrollSync');
     var ExtScrollView = require('views/ExtScrollView');
 
     function AppView() {
